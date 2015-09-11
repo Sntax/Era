@@ -1,0 +1,25 @@
+/* humanstxt.org */
+
+/* TEAM */
+
+  YOUR FIRST AND LAST NAME GOES HERE
+  YOUR EMAIL ADDRESS GOES HERE
+
+  ANOTHER TEAM MEMEBERS FIRST AND LAST NAME GOES HERE
+  ANOTHER TEAM MEMEBERS EMAIL ADDRESS GOES HERE
+
+  AND SO ON
+  AND SO FORTH
+
+
+/ THANKS */
+  Node.js
+  Grunt
+  Sass
+  jQuery
+
+
+
+/* SITE */
+  Standards: HTML5, Scss, CSS3, JavaScript, jQuery
+  Software: Git
