@@ -1,3 +1,60 @@
 /* ===================================================== */
 /* Component:                        Primary Page Styles */
 /* ===================================================== */
+
+.era {
+  @include HelveticaNeue("Light");
+
+  section.mast {
+    background-color: $black;
+    background: url('../images/mast-background.jpg') no-repeat center;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  nav {
+    color: $white;
+    position: fixed;
+    max-width: 1200px;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .logo {
+      padding: 2px 0 0 45px;
+      margin-right: -45px;
+      background: url('../images/era-logo-small-white.png') no-repeat center left;
+      background-size: 26px 22px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 5px;
+      @include rem-calc(font-size, 30);
+      margin-top: 37px;
+      min-width: 155px;
+      span {
+        color: $electric-blue;
+      }
+    }
+    .nav-items {
+      text-transform: uppercase;
+      text-align: right;
+      ul {
+        margin-top: 52px;
+        li {
+          float: right;
+          list-style-type: none;
+          margin-left: 40px;
+          @include rem-calc(font-size, 16);
+          a {
+            color: $white;
+            text-decoration: none;
+            &:hover {
+              color: $electric-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
