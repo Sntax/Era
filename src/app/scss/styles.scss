@@ -5,11 +5,29 @@
 .era {
   @include HelveticaNeue("Light");
 
-  section.mast {
-    background-color: $black;
-    background: url('../images/mast-background.jpg') no-repeat center;
-    background-size: cover;
+  section {
+    width: 100vw;
     height: 100vh;
+    &.mast {
+      background-color: $black;
+      color: $white;
+      background: url('../images/mast-background.jpg') no-repeat center;
+      background-size: cover;
+
+      .feature {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        text-transform: uppercase;
+        p {
+          @include rem-calc(font-size, 18);
+          &.title {
+            @include rem-calc(font-size, 48);
+            letter-spacing: 4px;
+          }
+        }
+      }
+    }
   }
 
   nav {
