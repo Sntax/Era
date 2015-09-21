@@ -1,14 +1,15 @@
 # ERA Cape Town
 
-This repo contains all website related code for the ERA Cape Town. 
+This repo contains all code related to the ERA Cape Town Custom Wordpress Theme.
 
 
-## Dependencies
+## Dependencies & Tech
 
-The ERA Cape Town website was developed on [The Grunt Project Template](https://github.com/Sntax/The-Grunt-Project-Template). Please follow instructions to setup your dev environment when making changes.
+The ERA Cape Town website was developed on [Wordpress](https://github.com/Sntax/The-Grunt-Project-Template).
 
-In addition, the ERA Cape Town website makes use of the following technologies:
+BakerHill makes use of the following technologies in this website:
 
-* [jQuery](https://jquery.com/) - Feature-rich JavaScript library.
-* [Normalize](https://necolas.github.io/normalize.css/) - HTML5-ready alternative to CSS resets. 
-* [Pure.css](http://purecss.io/grids/) - A set of small, responsive CSS modules. 
+* [Wordpress](https://wordpress.org/)
+* [Normalize](https://necolas.github.io/normalize.css/) - HTML5-ready alternative to CSS resets.
+* [Pure.css](http://purecss.io/grids/) - A set of small, responsive CSS modules.
+* [Git](https://git-scm.com/)
