@@ -11,10 +11,19 @@
       'pure_css',
       get_template_directory_uri() . '/css/pure.css'
     );
+    wp_enqueue_style(
+      'pure_responsive_css',
+      get_template_directory_uri() . '/css/pure-responsive.css'
+    );
     /* Custom Page Styles File */
     wp_enqueue_style(
       'main_css',
-      get_template_directory_uri() . '/main.css'
+      get_template_directory_uri() . '/css/main.css'
+    );
+    /* Template Style Calls */
+    wp_enqueue_style(
+      'style_css',
+      get_template_directory_uri() . '/style.css'
     );
   }
 

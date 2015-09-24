@@ -5,8 +5,9 @@
           <main id="main" class="site-main" role="main">
             <?php 
               $args = array(
-                  'post_type' => 'page',
-                  'order' => 'ASC'
+                'post_type' => 'page',
+                'orderby' => 'ID',
+                'order' => 'ASC'
               );
               $the_query = new WP_Query( $args );       
             ?>
