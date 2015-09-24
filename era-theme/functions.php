@@ -13,7 +13,7 @@
     );
     wp_enqueue_style(
       'pure_responsive_css',
-      get_template_directory_uri() . '/css/pure-responsive.css'
+      get_template_directory_uri() . '/css/pure-responsive.min.css'
     );
     /* Custom Page Styles File */
     wp_enqueue_style(
@@ -30,8 +30,26 @@
   add_action('wp_enqueue_scripts', 'era_cape_town_styles');
 
   function era_cape_town_scripts() {
+    /* Allows animation of colors - https://github.com/jquery/jquery-color/ */
+    wp_enqueue_script(
+      'jQuery_color_js',
+      get_template_directory_uri() . '/js/jquery-color.min.js',
+      array(
+        'jquery'
+      ),
+      '',
+      true
+    );
     /* Custom JavaScript Functionality (jQuery included with Wordpress by default) */
-    wp_enqueue_style('scripts_js', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '', true);
+    wp_enqueue_script(
+      'scripts_js',
+      get_template_directory_uri() . '/js/scripts.js',
+      array(
+        'jQuery_color_js'
+      ),
+      '',
+      true
+    );
   }
 
   add_action('wp_enqueue_scripts', 'era_cape_town_scripts');
