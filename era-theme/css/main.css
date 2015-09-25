@@ -50,12 +50,12 @@ Extra-Large (1301px and Up)
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-variant: normal;
 }
 body,
 html {
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 100;
   color: rgba(51, 51, 51, 1);
 }
 section {
