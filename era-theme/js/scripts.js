@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         root.animate({
           scrollTop: $($.attr(this, 'href')).offset().top
-        }, 850);
+        }, 1000);
       });
     },
 
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
       $(window).on('scroll', function() {
         if ($(document).scrollTop() > 0) {
           $('section#sticky-nav').addClass('active');
-        } else if ($(document).scrollTop() === 0) {
+        } else if ($(document).scrollTop() === 0 && $('nav.mobile ul').is(':hidden')) {
           $('section#sticky-nav').removeClass('active');
         }
       });

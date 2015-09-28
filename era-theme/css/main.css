@@ -185,6 +185,7 @@ nav.mobile ul li:first-child {
 }
 nav.mobile ul li:last-child {
   margin-bottom: 0;
+  border-bottom: none;
 }
 
 /*--- Navigation Small to Medium --- */
@@ -298,7 +299,11 @@ section#sticky-nav.active div.mobile-button path {
 /* ================= */
 
 #home {
+  background-image: url('../../../uploads/2015/09/era-mast.jpg');
   background-color: rgba(51, 51, 51, 1);
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: cover;
   color: rgba(255, 255, 255, 1);
   max-width: none;
   height: 100vh;
