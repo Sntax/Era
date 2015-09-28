@@ -43,6 +43,9 @@ Extra-Large (1301px and Up)
 */
 
 
+
+
+
 /* ================= */
 /*      GLOBAL       */
 /* ================= */
@@ -97,70 +100,36 @@ a:hover {
 }
 
 
-/* ================= */
-/*      HEADER       */
-/* ================= */
-
-#sticky-nav {
-  position: fixed;
-  height: 100px;
-  right: 0;
-  left: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-  color: rgba(255, 255, 255, 1);
-  text-transform: uppercase;
-}
-
-#sticky-nav a:link,
-#sticky-nav a:visited {
-  color: rgba(255, 255, 255, 1);
-  -webkit-transition: color 0.6s;
-  -moz-transition: color 0.6s;
-  -o-transition: color 0.6s;
-  transition: color 0.6s;
-}
-#sticky-nav a:hover {
-  color: rgba(0, 168, 255, 1);
-}
-
-
-
-/* ================= */
-/*       LOGO        */
-/* ================= */
-
-.sticky-nav .logo {
-  margin-top: 35px;
-  font-weight: 600;
-  font-size: 30px;
-  letter-spacing: 5px;
-}
-.sticky-nav .logo span {
-  color: rgba(0, 168, 255, 1);
-}
-
-/*--- Logo Small to Medium --- */
-@media screen and (min-width: 0em) and (max-width: 48em) {
-  .sticky-nav .logo {
-    margin-top: 7px;
-  }
-}
-
-/* --- Logo Small to Large --- */
-@media screen and (min-width: 0em) and (max-width: 81.250em) {
-  .sticky-nav .logo {
-    margin-left: 38px;
-    margin-right: -38px;
-  }
-}
 
 
 
 /* ================= */
 /*    NAVIGATION     */
 /* ================= */
+
+section#sticky-nav {
+  position: fixed;
+  min-width: 100%;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+}
+
+section#sticky-nav a {
+  color: rgba(255, 255, 255, 1);
+  transition: 0.85s;
+}
+section#sticky-nav a:hover {
+  color: rgba(0, 168, 255, 1);
+  transition: 0.85s;
+}
+
+header.sticky-nav {
+  max-width: 1200px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /* --- Desktop Navigation --- */
 nav.global ul {
@@ -190,6 +159,11 @@ nav.global div.mobile-button svg:hover {
 }
 nav.global div.mobile-button path {
   fill: rgba(255, 255, 255, 1);
+  transition: 0.85s;
+}
+nav.global div.mobile-button.hover path {
+  fill: rgba(0, 168, 255, 1) !important;
+  transition: 0.85s;
 }
 
 /* --- Mobile Navigation --- */
@@ -204,19 +178,13 @@ nav.mobile ul li {
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 1);
-  background-color: rgba(255, 255, 255, 0.8);
 }
 nav.mobile ul li:first-child {
   padding-top: 10px;
-  margin-top: 7px;
   border-top: 1px solid rgba(255, 255, 255, 1);
 }
 nav.mobile ul li:last-child {
   margin-bottom: 0;
-}
-nav.mobile ul li a:link,
-nav.mobile ul li a:visited {
-  color: rgba(51, 51, 51, 1) !important;
 }
 
 /*--- Navigation Small to Medium --- */
@@ -226,9 +194,6 @@ nav.mobile ul li a:visited {
   }
   nav.global div.mobile-button {
     margin-top: 14px;
-    display: block;
-  }
-  nav.mobile {
     display: block;
   }
 }
@@ -242,10 +207,89 @@ nav.mobile ul li a:visited {
     margin-right: 26px;
     font-size: 15px;
   }
+}
+
+/*--- Navigation Large and Up --- */
+@media screen and (min-width: 48em) {
   nav.mobile {
     display: none;
   }
 }
+
+section#sticky-nav,
+section#sticky-nav.active,
+section#sticky-nav a,
+section#sticky-nav.active a,
+section#sticky-nav .sticky-nav div.logo,
+section#sticky-nav.active .sticky-nav div.logo,
+section#sticky-nav nav.global ul,
+section#sticky-nav.active nav.global ul,
+section#sticky-nav div.mobile-button,
+section#sticky-nav.active div.mobile-button,
+section#sticky-nav div.mobile-button path,
+section#sticky-nav.active div.mobile-button path {
+  transition: 0.85s;
+}
+
+section#sticky-nav.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+section#sticky-nav.active a {
+  color: rgba(51, 51, 51, 1);
+}
+section#sticky-nav.active a:hover {
+  color: rgba(0, 168, 255, 1);
+}
+section#sticky-nav.active .sticky-nav div.logo {
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+section#sticky-nav.active nav.global ul {
+  margin-top: 26px;
+}
+section#sticky-nav.active div.mobile-button {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+section#sticky-nav.active div.mobile-button path {
+  fill: rgba(51, 51, 51, 1);
+}
+
+/* ================= */
+/*       LOGO        */
+/* ================= */
+
+.sticky-nav .logo {
+  margin-top: 35px;
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+.sticky-nav .logo a:link, 
+.sticky-nav .logo a:visited {
+  color: rgba(255, 255, 255, 1);
+}
+.sticky-nav .logo span {
+  color: rgba(0, 168, 255, 1);
+}
+
+/*--- Logo Small --- */
+@media screen and (min-width: 0em) and (max-width: 48em) {
+  .sticky-nav .logo {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+/* --- Logo Small to Large --- */
+@media screen and (min-width: 0em) and (max-width: 81.250em) {
+  .sticky-nav .logo {
+    margin-left: 38px;
+    margin-right: -38px;
+  }
+}
+
+
 
 
 
