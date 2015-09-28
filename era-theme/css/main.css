@@ -53,7 +53,6 @@ Extra-Large (1301px and Up)
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 200;
   font-style: normal;
   font-variant: normal;
 }
@@ -62,24 +61,31 @@ html {
   color: rgba(51, 51, 51, 1);
 }
 section {
+  padding: 100px 0;
+}
+section .limiter {
   max-width: 1200px;
   margin: 0 auto;
 }
 h1 {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 26.4px;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 100px 0;
 }
 h3 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 15.4px;
 }
 p {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 20px;
-  margin: 0;
+  line-height: 26px;
+  margin: 0 0 100px 0;
+  text-align: center;
 }
 blockquote {
   font-size: 21px;
@@ -99,6 +105,12 @@ a:hover {
   color: rgba(0, 168, 255, 1);
 }
 
+ h1 span {
+  font-size: 40px;
+  line-height: 0;
+  color: rgba(0, 168, 255, 1);
+}
+
 
 
 
@@ -110,6 +122,7 @@ a:hover {
 section#sticky-nav {
   position: fixed;
   min-width: 100%;
+  padding: 0;
   color: rgba(255, 255, 255, 1);
   text-transform: uppercase;
 }
@@ -256,9 +269,7 @@ section#sticky-nav.active div.mobile-button path {
   fill: rgba(51, 51, 51, 1);
 }
 
-/* ================= */
-/*       LOGO        */
-/* ================= */
+/*--- Logo --- */
 
 .sticky-nav .logo {
   margin-top: 35px;
@@ -294,11 +305,11 @@ section#sticky-nav.active div.mobile-button path {
 
 
 
-/* ================= */
-/*  MASTHEAD / HOME  */
-/* ================= */
+/* ========================== */
+/*  MASTHEAD / HOME / SLIDER  */
+/* ========================== */
 
-#home {
+section#home {
   background-image: url('../../../uploads/2015/09/era-mast.jpg');
   background-color: rgba(51, 51, 51, 1);
   background-position: center center;
@@ -310,19 +321,83 @@ section#sticky-nav.active div.mobile-button path {
 }
 
 
-/* --- About --- */
 
 
-/* --- Events & Tickets --- */
+
+/* ======= */
+/*  ABOUT  */
+/* ======= */
+
+section#about {
+  background-color: rgba(255, 255, 255, 1);
+}
 
 
-/* --- Table Bookings --- */
 
 
-/* --- Venue Hire --- */
+
+/* ================== */
+/*  Events & Tickets  */
+/* ================== */
+
+section#events-tickets {
+  background-color: rgba(245, 245, 245, 1);
+}
 
 
-/* --- Contact --- */
 
 
-/* --- Footer --- */
+
+/* ================ */
+/*  Table Bookings  */
+/* ================ */
+
+section#table-bookings {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+/* ============ */
+/*  Venue Hire  */
+/* ============ */
+
+section#venue-hire {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+/* ========= */
+/*  Contact  */
+/* ========= */
+
+section#contact {
+  background-color: rgba(245, 245, 245, 1);
+}
+
+
+
+
+
+/* ======== */
+/*  Footer  */
+/* ======== */
+
+section#footer {
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 50px 0;
+}
+section#footer div:last-child {
+  text-align: right;
+}
+
+section#footer a.baker-hill,
+section#footer a.baker-hill:hover {
+  color: rgba(255, 0, 81, 1);
+}

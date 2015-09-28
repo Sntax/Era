@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
     // Scrolls to a section on click
     smoothScroll: function() {
       var root = $('html, body');
-      $('.sticky-nav a').on('click', function(e) {
+      $('.smooth-scroll').on('click', function(e) {
         e.preventDefault();
         root.animate({
           scrollTop: $($.attr(this, 'href')).offset().top
