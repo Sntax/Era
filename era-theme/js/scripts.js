@@ -16,6 +16,7 @@ jQuery(document).ready(function($) {
       eraCapeTown.smoothScroll();
       eraCapeTown.hamburgerMenu();
       eraCapeTown.navigation();
+      // eraCapeTown.flair();
     },
 
     // Scrolls to a section on click
@@ -62,6 +63,26 @@ jQuery(document).ready(function($) {
           $('section#sticky-nav').removeClass('active');
         }
       });
+    },
+
+    flair: function() {
+      var i = 0;
+      var colors = [
+        'rgba(0, 168, 255, 1)',
+        'rgba(201, 0, 255, 1)',
+        'rgba(255, 0, 0, 1)',
+        'rgba(255, 231, 0, 1)',
+        'rgba(73, 255, 0, 1)'
+      ];
+      function changeColor() {
+        i++;
+        i = i % 5;
+        $('.logo a span, h1 span').animate({
+          color: colors[i]
+        }, 3000);
+        setTimeout(changeColor, 3001);
+      }
+      changeColor();
     }
   };
   eraCapeTown.init();
