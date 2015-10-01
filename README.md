@@ -1,6 +1,6 @@
 # ERA Cape Town
 
-This repo contains all code related to the ERA Cape Town Custom Wordpress Theme.
+This repo contains all code related to the ERA Cape Town Custom Wordpress Template.
 
 
 ## Dependencies & Tech
@@ -13,3 +13,6 @@ BakerHill makes use of the following technologies in this website:
 * [Normalize](https://necolas.github.io/normalize.css/) - HTML5-ready alternative to CSS resets.
 * [Pure.css](http://purecss.io/grids/) - A set of small, responsive CSS modules.
 * [Git](https://git-scm.com/) - Version control system.
+
+
+## Architectural Guidelines

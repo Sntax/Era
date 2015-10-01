@@ -418,3 +418,15 @@ section#footer a.baker-hill,
 section#footer a.baker-hill:hover {
   color: rgba(255, 0, 81, 1);
 }
+section#footer div.copyright.pure-u-24-24,
+section#footer div.affiliate.pure-u-24-24 {
+  text-align: center !important;
+}
+section#footer div.copyright.pure-u-24-24 {
+  margin-bottom: 35px;
+}
+
+
+/*--- Footer Large --- */
+@media screen and (min-width: 48em) and (max-width: 81.250em) {
+}
