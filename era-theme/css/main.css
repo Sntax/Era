@@ -13,7 +13,7 @@
              - rgba(255, 255, 255, 1)
 
   Light Grey - #f5f5f5
-             - rgba(245, 245, 245, 1)
+             - rgba(229, 229, 229, 1)
 
   Dark Grey  - #333
              - rgba(51, 51, 51, 1)
@@ -110,7 +110,7 @@ a:hover {
 }
 
 /*--- Global Small to Medium --- */
-@media screen and (min-width: 0em) and (max-width: 48em) {
+@media screen and (min-width: 0em) and (max-width: 81.250em) {
   div.limiter p,
   div.limiter h1 {
     margin-left: 38px;
@@ -340,11 +340,53 @@ section#about {
 }
 
 /* --- Accordion --- */
-
+div.accordion {
+}
+div.accordion .part h2,
+div.accordion .part p {
+  padding: 0;
+  margin: 0;
+}
+div.accordion .part h2 {
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  color: rgba(51, 51, 51, 1);
+  transition: 0.5s;
+}
+div.accordion .part h2:hover {
+  color: rgba(0, 168, 255, 1);
+  transition: 0.5s;
+}
+div.accordion .part p {
+  text-align: left;
+  color: rgba(146, 146, 146, 1);
+  font-size: 14px;
+  display: none;
+}
+div.accordion .part.active h2 {
+  color: rgba(0, 168, 255, 1);
+}
+div.accordion .part.active p {
+  display: block;
+}
+div.accordion .part {
+  border-top: 1px solid rgba(229, 229, 229, 1);
+  border-right: 1px solid rgba(229, 229, 229, 1);
+  border-bottom: none;
+  border-left: 1px solid rgba(229, 229, 229, 1);
+  padding: 20px;
+  margin-left: 38px;
+  margin-right: 38px;
+}
+div.accordion .part:last-child {
+  border-bottom: 1px solid rgba(229, 229, 229, 1);
+}
 
 /* --- Sound Cloud Widgets --- */
 div.soundclouds iframe {
-  width: 550px;
+  max-width: 550px;
   height: 120px;
   float: right;
   margin-bottom: 15px;
@@ -358,7 +400,7 @@ div.soundclouds iframe {
 /* ================== */
 
 section#events-tickets {
-  background-color: rgba(245, 245, 245, 1);
+  background-color: rgba(229, 229, 229, 1);
 }
 
 
@@ -394,7 +436,7 @@ section#venue-hire {
 /* ========= */
 
 section#contact {
-  background-color: rgba(245, 245, 245, 1);
+  background-color: rgba(229, 229, 229, 1);
 }
 
 
