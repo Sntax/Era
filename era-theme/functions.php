@@ -54,6 +54,7 @@
 
   add_action('wp_enqueue_scripts', 'era_cape_town_scripts');
 
+  /* Defer parsing of Javascript to improve page performance */
   function defer_parsing_of_js ( $url ) {
     if ( FALSE === strpos( $url, '.js' ) ) return $url;
     if ( strpos( $url, 'jquery.js' ) ) return $url;
