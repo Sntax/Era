@@ -7,22 +7,22 @@
 
 /*
   White      - #fff
-             - rgba(255, 255, 255, 1)
+             - rgba(255, 255, 255, 1);
 
   Black      - #000
-             - rgba(255, 255, 255, 1)
+             - rgba(255, 255, 255, 1);
 
   Light Grey - #f5f5f5
-             - rgba(229, 229, 229, 1)
+             - rgba(229, 229, 229, 1);
 
   Dark Grey  - #333
-             - rgba(51, 51, 51, 1)
+             - rgba(51, 51, 51, 1);
 
   Era Blue   - #00a8ff
-             - rgba(0, 168, 255, 1)
+             - rgba(0, 168, 255, 1);
 
   Baker Hill - #ff0051
-             - rgba(255, 0, 81, 1)
+             - rgba(255, 0, 81, 1);
 */
 
 
@@ -408,7 +408,75 @@ div.soundclouds iframe {
 /* ================== */
 
 section#events-tickets {
-  background-color: rgba(229, 229, 229, 1);
+  background-color: rgba(245, 245, 245, 1);
+}
+div.event-tile .event-tile-bounds {
+  background-color: rgba(255, 255, 255, 1);
+  margin: 0 20px;
+  padding: 45px 0;
+  height: 250px;
+}
+div.event-tile .event-tile-bounds p {
+  margin: 0;
+}
+div.event-tile .event-tile-bounds p.presents {
+  margin: 0;
+  text-transform: uppercase;
+}
+div.event-tile .event-tile-bounds p.sponsor {
+  margin: 20px 0;
+  height: 70px;
+}
+div.event-tile .event-tile-bounds p.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 168, 255, 1);
+}
+div.event-tile .event-tile-bounds p.date {
+  margin-bottom: 25px;
+}
+div.event-tile .event-tile-bounds a.button,
+div.newsletter button.button {
+  border: 1px solid rgba(51, 51, 51, 1);
+  border-radius: 25px;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 0 auto;
+  color: rgba(51, 51, 51, 1);
+}
+div.event-tile .event-tile-bounds a.button:hover,
+div.newsletter button.button:hover {
+  transition: 0.5s;
+  border: 1px solid rgba(0, 168, 255, 1);
+  background-color: rgba(0, 168, 255, 1);
+  color: rgba(255, 255, 255, 1);
+}
+/*--- Events Small --- */
+@media screen and (min-width: 0em) and (max-width: 48em) {
+  div.event-tile .event-tile-bounds {
+    margin-bottom: 15px;
+  }
+}
+
+div.newsletter {
+  background-color: rgba(255, 255, 255, 1);
+  margin: 50px 20px 0 20px;
+  padding: 50px;
+}
+div.newsletter p {
+  margin: 0;
+}
+div.newsletter input {
+  margin: 50px 0;
+  padding: 15px 0;
+  width: 100%;
+  text-align: center;
+  border: none;
+  background-color: rgba(245, 245, 245, 1);
+}
+div.newsletter button.button {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 5px 45px;
 }
 
 
@@ -432,6 +500,7 @@ section#table-bookings {
 /* ============ */
 
 section#venue-hire {
+  display: none;
   background-color: rgba(255, 255, 255, 1);
 }
 
@@ -444,7 +513,7 @@ section#venue-hire {
 /* ========= */
 
 section#contact {
-  background-color: rgba(229, 229, 229, 1);
+  background-color: rgba(245, 245, 245, 1);
 }
 
 

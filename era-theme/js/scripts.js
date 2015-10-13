@@ -96,7 +96,6 @@ jQuery(document).ready(function($) {
         }
       });
     }
-
   };
   eraCapeTown.init();
 });
