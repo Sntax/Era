@@ -159,6 +159,3 @@ jQuery(document).ready(function($) {
   // Initialize all functions
   eraCapeTown.init();
 });
-
-// <3 Baker Hill Digital loves Great Developers. 
-// Shoot us an email at info@bakerhilldigital.com if you're interested in a position.

@@ -447,8 +447,15 @@ div.event-tile .event-tile-bounds p.presents {
   text-transform: uppercase;
 }
 div.event-tile .event-tile-bounds p.sponsor {
+  display: table;
+  width: 100%;
   margin: 20px 0;
   height: 70px;
+}
+div.event-tile .event-tile-bounds p.sponsor span.vertical {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
 }
 div.event-tile .event-tile-bounds p.title {
   font-size: 20px;
@@ -579,7 +586,7 @@ form#booking input#submitbutton {
 
 
 
-/* ================ */
+/* ============ */
 /*  Venue Hire  */
 /* ============ */
 
@@ -628,8 +635,11 @@ section#footer div.affiliate.pure-u-24-24 {
 section#footer div.copyright.pure-u-24-24 {
   margin-bottom: 35px;
 }
-
-
-/*--- Footer Large --- */
-@media screen and (min-width: 48em) and (max-width: 81.250em) {
+@media screen and (min-width: 0em) and (max-width: 35.5em) {
+  footer.limiter {
+    padding: 0 15px;
+  }
+  footer.limiter div.copyright {
+    margin-bottom: 15px;
+  }
 }
