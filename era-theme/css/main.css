@@ -1,9 +1,13 @@
-/* ===================================================== */
-/* Component:                          Custom CSS Styles */
-/* Project Name:                           Era Cape Town */
-/* Project URL:                      www.eracapetown.com */
-/* Author(s):                andrew@bakerhilldigital.com */
-/* ===================================================== */
+/* ========================================================================= */
+/* Component:                                              Custom CSS Styles */
+/* Project Name:                                               Era Cape Town */
+/* Project URL:                                          www.eracapetown.com */
+/* Author(s):                                    andrew@bakerhilldigital.com */
+/* ========================================================================= */
+
+/* ================= */
+/*      COLORS       */
+/* ================= */
 
 /*
   White      - #fff
@@ -26,20 +30,25 @@
 */
 
 
-/*
 
-Small (0px to 568px)
+
+
+/* ================= */
+/*   BREAK POINTS    */
+/* ================= */
+
+/*
+  Small (0px to 568px)
   @media screen and (min-width: 0em) and (max-width: 35.5em) {}
 
-Medium (569px to 768px)
+  Medium (569px to 768px)
   @media screen and (min-width: 35.563em) and (max-width: 48em) {}
 
-Large (769px to 1300px)
+  Large (769px to 1300px)
   @media screen and (min-width: 48.063em) and (max-width: 81.250em) {}
 
-Extra-Large (1301px and Up)
+  Extra-Large (1301px and Up)
   @media screen and (min-width: 81.313em) {}
-
 */
 
 
@@ -75,7 +84,8 @@ h1 {
   text-transform: uppercase;
   margin: 0 0 100px 0;
 }
-h1 span {
+h1:after {
+  content: '.';
   font-size: 40px;
   line-height: 0;
   color: rgba(0, 168, 255, 1);
@@ -360,17 +370,30 @@ div.accordion .part h2:hover {
   color: rgba(0, 168, 255, 1);
   transition: 0.5s;
 }
-div.accordion .part p {
+div.accordion .part .disclosure {
   text-align: left;
   color: rgba(146, 146, 146, 1);
   font-size: 14px;
   display: none;
   padding: 0 20px 15px 20px;
 }
+div.accordion .part ul.disclosure {
+  margin: 0;
+  padding-bottom: 20px;
+  list-style-type: none;
+  padding-left: 20px;
+  line-height: 30px;
+  font-size: 14px;
+  color: rgba(146, 146, 146, 1);
+}
+div.accordion .part ul.disclosure li.total {
+  font-weight: 600;
+}
 div.accordion .part.active h2 {
   color: rgba(0, 168, 255, 1);
+  font-weight: 600;
 }
-div.accordion .part.active p {
+div.accordion .part.active .disclosure {
   display: block;
 }
 div.accordion .part {
@@ -491,11 +514,72 @@ section#table-bookings {
   background-color: rgba(255, 255, 255, 1);
 }
 
+.booking-accordion .moblie-book-button {
+  display: none;
+}
+
+form#booking label {
+  font-size: 15px;
+}
+form#booking label:after {
+  content: ' *';
+  color: rgba(255, 0, 81, 1);
+}
+form#booking label[for='additional']:after {
+  content: ' ';
+}
+form#booking select,
+form#booking input,
+form#booking textarea {
+  width: 100%;
+  height: 60px;
+  border: 1px solid rgba(229, 229, 229, 1);
+  padding: 15px;
+  margin: 10px 0 20px 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: none;
+}
+form#booking select#package {
+  color: rgba(0, 168, 255, 1);
+  border: 1px solid rgba(0, 168, 255, 1);
+}
+form#booking textarea#additional {
+  text-transform: none;
+  height: 100px;
+}
+form#booking input#submitbutton {
+  background-color: transparent;
+  width: 150px;
+}
+@media screen and (min-width: 0em) and (max-width: 81.250em) {
+  .mobile-book-button {
+    display: block;
+    border: 1px solid rgba(229, 229, 229, 1);
+    line-height: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .mobile-book-button a {
+    display: inline-block;
+    padding: 20px 0;
+    width: 100%;
+  }
+  form#booking {
+    margin: 50px 40px 0 40px;
+  }
+  form#booking input#submitbutton {
+    width: 100%;
+  }
+}
 
 
 
 
-/* ============ */
+/* ================ */
 /*  Venue Hire  */
 /* ============ */
 
