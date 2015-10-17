@@ -540,6 +540,7 @@ form#booking label[for='additional']:after {
 form#booking select,
 form#booking input,
 form#booking textarea {
+  transition: 0.5s;
   width: 100%;
   height: 60px;
   border: 1px solid rgba(229, 229, 229, 1);
@@ -552,6 +553,13 @@ form#booking textarea {
   -webkit-box-sizing: border-box;
   -webkit-appearance: none;
 }
+form#booking select.validation-error,
+form#booking input.validation-error,
+form#booking textarea.validation-error {
+  transition: 0.5s;
+  border: 1px solid rgba(255, 0, 81, 1);
+}
+
 form#booking select#package {
   color: rgba(0, 168, 255, 1);
   border: 1px solid rgba(0, 168, 255, 1);
@@ -559,6 +567,12 @@ form#booking select#package {
 form#booking textarea#additional {
   text-transform: none;
   height: 100px;
+}
+form#booking .field.error-message {
+  display: none;
+  margin: 0 0 10px 0;
+  text-align: left;
+  color: rgba(255, 0, 81, 1);
 }
 form#booking input#submitbutton {
   transition: 0.5s;

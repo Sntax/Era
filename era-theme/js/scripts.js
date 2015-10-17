@@ -25,6 +25,8 @@ jQuery(document).ready(function($) {
       eraCapeTown.sticky();
       // Executes accordion functionality
       eraCapeTown.accordion();
+      // Executes booking form validation
+      eraCapeTown.bookingFormValidation();
     },
 
     // Scrolls to a section on click
@@ -153,6 +155,40 @@ jQuery(document).ready(function($) {
             activeElement = null;
           });
         }
+      });
+    },
+
+    // Booking form validation
+    bookingFormValidation: function(){
+      var errorMessage = $('.field.error-message');
+      var bookingForm = $('form#booking');
+      // List of required fields on form
+      var requiredFields = [
+        $('input#flname'),
+        $('input#emailaddress'),
+        $('input#phonenumber'),
+        $('input#date')
+      ];
+      // When clicking submit on booking form
+      $('form#booking input#submitbutton').on('click', function(e){
+        // Loop through each field in required fields array
+        $(requiredFields).each(
+          function(){
+            // If any required field is blank
+            if ($(this).val() === '') {
+              // Prevent submission
+              e.preventDefault();
+              // Highlight the required field as invalid
+              $(this).addClass('validation-error');
+              // and display an error message element on the screen
+              errorMessage.slideDown();
+            // If there are any elements that have values but previously failed validation
+            } else if (($(this).hasClass('validation-error')) && ($(this).val !== '')) {
+              // remove their error state
+              $(this).removeClass('validation-error');
+            }
+          }
+        );
       });
     }
   };
