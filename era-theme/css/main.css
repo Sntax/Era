@@ -582,6 +582,32 @@ p.success-message {
   border: 1px solid rgba(255, 0, 81, 1) !important;
 }
 
+@media screen and (min-width: 0em) and (max-width: 64em) {
+  .mobile-book-button {
+    display: block;
+    border: 1px solid rgba(229, 229, 229, 1);
+    line-height: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .mobile-book-button a {
+    display: inline-block;
+    padding: 20px 0;
+    width: 100%;
+  }
+  form#ss-form {
+    margin: 50px 40px 0 40px;
+  }
+  form#ss-form input#ss-submit,
+  form#ss-form .ss-navigate,
+  form#ss-form #navigation-table {
+    width: 100%;
+  }
+  .ss-question-list {
+    margin-left: 0 !important;
+  }
+}
+
 /* ============ */
 /*  Venue Hire  */
 /* ============ */

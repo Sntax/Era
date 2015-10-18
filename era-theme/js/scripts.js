@@ -96,6 +96,9 @@ jQuery(document).ready(function($) {
     sticky: function() {
       // When the user scrolls
       $(window).on('scroll', function() {
+        styleSticky();
+      });
+      function styleSticky() {
         // If the document is no longer at the top
         if ($(document).scrollTop() > 0) {
           // Apply an active class to the sticky to adjust styles
@@ -105,7 +108,8 @@ jQuery(document).ready(function($) {
           // Remove the active class from the sticky to adjust styles
           $('section#sticky-nav').removeClass('active');
         }
-      });
+      }
+      styleSticky();
     },
 
     // Accordion functionality
