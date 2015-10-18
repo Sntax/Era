@@ -6,13 +6,13 @@
 /* ========================================================================= */
 
 // Utilize 'no-conflict jQuery' to prevent conflicts within Wordpress
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($){
 
   // Scope all functions to an "eraCapeTown" object to maintain context
   var eraCapeTown = {
 
     // Initialize all functions
-    init: function() {
+    init: function(){
       // Wordpress has a tendency to throw random empty paragraph
       // tags all over the place.  This seeks to remove those 
       // random empty p tags on the document
@@ -27,17 +27,19 @@ jQuery(document).ready(function($) {
       eraCapeTown.accordion();
       // Executes booking form validation
       eraCapeTown.bookingFormValidation();
+      // Executes watcher for successful booking form submission
+      eraCapeTown.bookingFormSuccessMessage();
     },
 
     // Scrolls to a section on click
-    smoothScroll: function() {
+    smoothScroll: function(){
       var eraBody = $('html, body');
       var stickyHeight = parseInt($('header.sticky-nav').css('height'), 10);
       var scrollElement = $('.smooth-scroll');
       // When clicking on an element with a "smooth-scroll" class
-      scrollElement.on('click', function(e) {
+      scrollElement.on('click', function(e){
         // If this element is an <a> tag
-        if ($(this).is('a')) {
+        if ($(this).is('a')){
           // Prevent it from directing the user anywhere
           e.preventDefault();
         }
@@ -50,25 +52,25 @@ jQuery(document).ready(function($) {
     },
 
     // Mobile navigation functionality
-    mobileNavigation: function() {
+    mobileNavigation: function(){
       var mobileNav = $('nav.mobile ul');
       var mobileButton = $('.mobile-button');
       var mobileListItems = $('nav.mobile ul li');
       var stickyNav = $('section#sticky-nav');
       // When clicking/tapping the mobile navigation button
-      mobileButton.on('click', function(e) {
+      mobileButton.on('click', function(e){
         // If the navigation is already visible
-        if (mobileNav.is(':visible')) {
+        if (mobileNav.is(':visible')){
           // Slide it up
           mobileNav.slideUp();
-          if ($(document).scrollTop() === 0) {
+          if ($(document).scrollTop() === 0){
             stickyNav.removeClass('active');
           }
         // If the navigation is not visible
         } else {
           // Slide it open
           mobileNav.slideDown();
-          if (!stickyNav.hasClass('active')) {
+          if (!stickyNav.hasClass('active')){
             stickyNav.addClass('active');
           }
         }
@@ -76,35 +78,35 @@ jQuery(document).ready(function($) {
       // When clicking/tapping any items in the mobile navigation
       mobileListItems.on('click', function(){
         // and the mobile navigation is open
-        if (mobileNav.is(':visible')) {
+        if (mobileNav.is(':visible')){
           // close the navigation (smoothScroll will fire at the same time)
           mobileNav.slideUp();
         }
       });
       // Custom classes for styling on hover
       mobileButton.hover(
-        function() {
+        function(){
           mobileButton.addClass('hover');
         },
-        function() {
+        function(){
           mobileButton.removeClass('hover');
         }
       );
     },
 
     // Sticky navigation functionality
-    sticky: function() {
+    sticky: function(){
       // When the user scrolls
-      $(window).on('scroll', function() {
+      $(window).on('scroll', function(){
         styleSticky();
       });
-      function styleSticky() {
+      function styleSticky(){
         // If the document is no longer at the top
-        if ($(document).scrollTop() > 0) {
+        if ($(document).scrollTop() > 0){
           // Apply an active class to the sticky to adjust styles
           $('section#sticky-nav').addClass('active');
         // If the document is at the top and the mobile nav is hidden
-        } else if ($(document).scrollTop() === 0 && $('nav.mobile ul').is(':hidden')) {
+        } else if ($(document).scrollTop() === 0 && $('nav.mobile ul').is(':hidden')){
           // Remove the active class from the sticky to adjust styles
           $('section#sticky-nav').removeClass('active');
         }
@@ -124,9 +126,9 @@ jQuery(document).ready(function($) {
         // Save a reference to the current active element on this accordion
         activeElement = $(this).parent().parent().find('.active');
         // If its parent does not have an active class
-        if (!$(this).parent(part).hasClass('active')) {
+        if (!$(this).parent(part).hasClass('active')){
           // But there are other active elements on the accordion
-          if (activeElement !== null) {
+          if (activeElement !== null){
             // Slide the other active elements up
             activeElement.find(disclosure).slideUp(600, function(){
               // and remove the parts active class after the slide completes
@@ -140,7 +142,7 @@ jQuery(document).ready(function($) {
             // and give the part an active class after the slideDown is complete
             $(this).parent(part).addClass('active');
             // In the event of the slideDown occuring on the table booking accordion
-            if ($(this).parent().parent().hasClass('booking-accordion')) {
+            if ($(this).parent().parent().hasClass('booking-accordion')){
               // Save a reference to its innerHTML text 
               var currentPackage = $(this).siblings('h2').text();
               // Then set the option element with the same text on the associated form as selected
@@ -148,11 +150,11 @@ jQuery(document).ready(function($) {
             }
           });
         // Finally, if its parent already has an active class
-        } else if ($(this).parent(part).hasClass('active')) {
+        } else if ($(this).parent(part).hasClass('active')){
           // Save a reference to the clicked headings sibling content as active
           activeElement = $(this).siblings(disclosure);
           // Slide that active element up
-          activeElement.slideUp(600, function() {
+          activeElement.slideUp(600, function(){
             // and remove the parts active class after the slide completes
             $(this).parent(part).removeClass('active');
             // and clear the reference to any activeElements
@@ -166,8 +168,9 @@ jQuery(document).ready(function($) {
     bookingFormValidation: function(){
       var errorMessage = $('.field.error-message');
       var successMessage = $('p.success-message');
+      var submitButton = $('.booking-form input#ss-submit');
+      var inputs = $('.booking-form input');
       var bookingForm = $('form#ss-form');
-      var allPassed;
       // List of required fields on form
       var requiredFields = [
         // Name
@@ -185,26 +188,58 @@ jQuery(document).ready(function($) {
         $(requiredFields).each(
           function(){
             // If any required field is blank
-            if ($(this).val() === '') {
+            if ($(this).val() === ''){
               // Prevent submission
               e.preventDefault();
               // Highlight the required field as invalid
               $(this).addClass('validation-error');
               // and display an error message element on the screen
               errorMessage.slideDown();
-              allPassed = false;
             // If there are any elements that have values but previously failed validation
-            } else if (($(this).hasClass('validation-error')) && ($(this).val !== '')) {
+            } else if (($(this).hasClass('validation-error')) && ($(this).val !== '')){
               // remove their error state
               $(this).removeClass('validation-error');
-            } else if (allPassed === true) {
-              bookingForm.fadeOut(1000, function(){
-                successMessage.fadeIn();
-              });
+            // If all input fields have data
             }
           }
         );
       });
+    },
+
+    // Booking form success message
+    bookingFormSuccessMessage: function(){
+      var bookingInterval = setInterval(checkLocation, 1000);
+      var successMessage = $('.booking-form .success-message');
+      var submitButton = $('.booking-form input#ss-submit');
+      var inputs = [
+        // Name
+        $('input#entry_1565452159'),
+        // Email Address
+        $('input#entry_1296499974'),
+        // Phone Number
+        $('input#entry_726044959'),
+        // Booking Date
+        $('input#entry_2021801101'),
+        // Additional Information
+        $('textarea#entry_741387056')
+      ];
+      
+      function checkLocation(){
+        if (document.location.hash === '#submitted=true'){
+          submitButton.fadeOut(1000, function(){
+          successMessage.fadeIn(1000);
+          $(inputs).each(
+            function(){
+              $(this).val('');
+            }
+          );
+          history.pushState('', document.title, window.location.pathname);
+          });
+        }
+        if (successMessage.is(':visible')){
+          clearInterval(bookingInterval);
+        }
+      }
     }
   };
   // Initialize all functions

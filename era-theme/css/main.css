@@ -131,6 +131,9 @@ ul, li {
   font-size: 1.5rem;
   font-weight: 300;
 }
+#venue-hire {
+  display: none;
+}
 
 /*--- Global Small to Medium --- */
 @media screen and (min-width: 0em) and (max-width: 81.250em) {
@@ -237,7 +240,7 @@ nav.mobile ul li:last-child {
     display: none;
   }
   nav.global div.mobile-button {
-    margin-top: 14px;
+    margin-top: 20px;
     display: block;
   }
 }
@@ -277,7 +280,7 @@ section#sticky-nav.active a:hover {
   color: rgba(0, 168, 255, 1);
 }
 section#sticky-nav.active .sticky-nav div.logo {
-  margin-top: 13px;
+  margin-top: 14px;
   margin-bottom: 13px;
 }
 section#sticky-nav.active nav.global ul {
@@ -293,31 +296,46 @@ section#sticky-nav.active div.mobile-button path {
 
 /*--- Logo --- */
 
-.sticky-nav .logo {
-  margin-top: 35px;
-  font-weight: 600;
-  font-size: 3rem;
-  letter-spacing: 5px;
+.sticky-nav .logo svg {
+  trasition: 0.5s;
+  margin-top: 29px;
+  margin-right: 10px;
 }
-.sticky-nav .logo a:link, 
-.sticky-nav .logo a:visited {
-  color: rgba(255, 255, 255, 1);
-}
-.sticky-nav .logo span {
+
+.sticky-nav .logo:after {
+  content: '.';
+  font-size: 4rem;
+  line-height: 0;
   color: rgba(0, 168, 255, 1);
+}
+
+#sticky-nav.active .logo svg {
+  trasition: 0.5s;
+  margin-top: -7px;
+}
+#sticky-nav.active .logo svg polygon,
+#sticky-nav.active .logo svg rect,
+#sticky-nav.active .logo svg path {
+  trasition: 0.5s;
+  fill: rgba(41, 41, 41, 1);
 }
 
 /*--- Logo Small --- */
 @media screen and (min-width: 0em) and (max-width: 48em) {
   .sticky-nav .logo {
-    margin-top: 6px;
+    trasition: 0.5s;
     margin-bottom: 6px;
+  }
+  .sticky-nav .logo svg {
+    trasition: 0.5s;
+    margin-top: 8px;
   }
 }
 
 /* --- Logo Small to Large --- */
 @media screen and (min-width: 0em) and (max-width: 81.250em) {
   .sticky-nav .logo {
+    trasition: 0.5s;
     margin-left: 38px;
     margin-right: -38px;
   }
@@ -355,8 +373,6 @@ section#about {
 }
 
 /* --- Accordion --- */
-div.accordion {
-}
 div.accordion .part h2,
 div.accordion .part p {
   padding: 0;
@@ -407,11 +423,16 @@ div.accordion .part {
   border-right: 1px solid rgba(229, 229, 229, 1);
   border-bottom: none;
   border-left: 1px solid rgba(229, 229, 229, 1);
-  margin-left: 38px;
   margin-right: 38px;
+  margin-left: 0;
 }
 div.accordion .part:last-child {
   border-bottom: 1px solid rgba(229, 229, 229, 1);
+}
+@media screen and (min-width: 0em) and (max-width: 81.250em) {
+  div.accordion .part {
+    margin-left: 38px;
+  }
 }
 
 /* --- Sound Cloud Widgets --- */
@@ -515,6 +536,11 @@ div.newsletter button.button {
   background-color: rgba(255, 255, 255, 1);
   padding: 5px 45px;
 }
+@media screen and (min-width: 48.063em) {
+  div.newsletter input {
+    width: 50%;
+  }
+}
 
 
 
@@ -526,6 +552,9 @@ div.newsletter button.button {
 
 section#table-bookings {
   background-color: rgba(255, 255, 255, 1);
+}
+.booking-accordion .mobile-book-button {
+  display: none;
 }
 
 form#ss-form select,
@@ -574,6 +603,8 @@ form#ss-form .ss-required-asterisk {
 }
 p.success-message {
   display: none;
+  margin-left: 20px;
+  margin-bottom: 0;
   text-align: left;
   color: rgba(0, 168, 255, 1);
 }
@@ -606,15 +637,6 @@ p.success-message {
   .ss-question-list {
     margin-left: 0 !important;
   }
-}
-
-/* ============ */
-/*  Venue Hire  */
-/* ============ */
-
-section#venue-hire {
-  display: none;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 
@@ -703,7 +725,7 @@ section#contact {
 section#footer {
   font-size: 1.4rem;
   background-color: rgba(255, 255, 255, 1);
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 section#footer div:last-child {
   text-align: right;
