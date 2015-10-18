@@ -125,6 +125,7 @@ textarea,
 button {
   font-size: 1.5rem;
   font-weight: 300;
+  -webkit-appearance: none;
 }
 ul, li {
   font-size: 1.5rem;
@@ -527,19 +528,9 @@ section#table-bookings {
   background-color: rgba(255, 255, 255, 1);
 }
 
-form#booking label {
-  font-size: 1.5rem;
-}
-form#booking label:after {
-  content: ' *';
-  color: rgba(255, 0, 81, 1);
-}
-form#booking label[for='additional']:after {
-  content: ' ';
-}
-form#booking select,
-form#booking input,
-form#booking textarea {
+form#ss-form select,
+form#ss-form input,
+form#ss-form textarea {
   transition: 0.5s;
   width: 100%;
   height: 60px;
@@ -553,67 +544,43 @@ form#booking textarea {
   -webkit-box-sizing: border-box;
   -webkit-appearance: none;
 }
-form#booking select.validation-error,
-form#booking input.validation-error,
-form#booking textarea.validation-error {
-  transition: 0.5s;
-  border: 1px solid rgba(255, 0, 81, 1);
-}
-
-form#booking select#package {
+form#ss-form select {
   color: rgba(0, 168, 255, 1);
   border: 1px solid rgba(0, 168, 255, 1);
 }
-form#booking textarea#additional {
-  text-transform: none;
+form#ss-form textarea {
   height: 100px;
+  text-transform: none;
 }
-form#booking .field.error-message {
-  display: none;
-  margin: 0 0 10px 0;
-  text-align: left;
-  color: rgba(255, 0, 81, 1);
-}
-form#booking input#submitbutton {
-  transition: 0.5s;
+form#ss-form input#ss-submit {
   background-color: transparent;
+  transition: 0.5s;
   width: 150px;
 }
-form#booking input#submitbutton:hover {
+form#ss-form input#ss-submit:hover {
   transition: 0.5s;
   border: 1px solid rgba(0, 168, 255, 1);
   background-color: rgba(0, 168, 255, 1);
   color: rgba(255, 255, 255, 1);
 }
-@media screen and (min-width: 0em) and (max-width: 64em) {
-  .mobile-book-button {
-    display: block;
-    border: 1px solid rgba(229, 229, 229, 1);
-    line-height: 0;
-    margin-top: 10px;
-    text-align: center;
-  }
-  .mobile-book-button a {
-    display: inline-block;
-    padding: 20px 0;
-    width: 100%;
-  }
-  form#booking {
-    margin: 50px 40px 0 40px;
-  }
-  form#booking input#submitbutton {
-    width: 100%;
-  }
+form#ss-form .ss-form-entry p {
+  margin: 0;
 }
-
-@media screen and (min-width: 64em) {
-  .mobile-book-button {
-    display: none;
-  }
+form#ss-form .draft-response {
+  display: none;
 }
-
-
-
+form#ss-form .ss-required-asterisk {
+  color: rgba(255, 0, 81, 1);
+}
+p.success-message {
+  display: none;
+  text-align: left;
+  color: rgba(0, 168, 255, 1);
+}
+.validation-error {
+  transition: 0.5s;
+  border: 1px solid rgba(255, 0, 81, 1) !important;
+}
 
 /* ============ */
 /*  Venue Hire  */
@@ -699,7 +666,11 @@ section#contact {
   }
 }
 
-/* ======== */
+
+
+
+
+/* ========= */
 /*  Footer  */
 /* ======== */
 
@@ -730,4 +701,24 @@ section#footer div.copyright.pure-u-24-24 {
   footer.limiter div.copyright {
     margin-bottom: 15px;
   }
+}
+
+
+
+
+
+/* ========== */
+/*  404 Page  */
+/* ========== */
+
+section.error-404 {
+  text-align: center;
+}
+section.error-404 p.number {
+  margin: 100px 0;
+  font-size: 9rem;
+}
+section.error-404 p.message {
+  margin: 20px 0;
+  font-size: 2.4rem;
 }

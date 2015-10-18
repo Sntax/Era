@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
               // Save a reference to its innerHTML text 
               var currentPackage = $(this).siblings('h2').text();
               // Then set the option element with the same text on the associated form as selected
-              $('form#booking option:contains("' + currentPackage + '")').prop('selected', true);
+              $('form#ss-form option:contains("' + currentPackage + '")').prop('selected', true);
             }
           });
         // Finally, if its parent already has an active class
@@ -161,16 +161,22 @@ jQuery(document).ready(function($) {
     // Booking form validation
     bookingFormValidation: function(){
       var errorMessage = $('.field.error-message');
-      var bookingForm = $('form#booking');
+      var successMessage = $('p.success-message');
+      var bookingForm = $('form#ss-form');
+      var allPassed;
       // List of required fields on form
       var requiredFields = [
-        $('input#flname'),
-        $('input#emailaddress'),
-        $('input#phonenumber'),
-        $('input#date')
+        // Name
+        $('input#entry_1565452159'),
+        // Email Address
+        $('input#entry_1296499974'),
+        // Phone Number
+        $('input#entry_726044959'),
+        // Booking Date
+        $('input#entry_2021801101')
       ];
       // When clicking submit on booking form
-      $('form#booking input#submitbutton').on('click', function(e){
+      $('form#ss-form input#ss-submit').on('click', function(e){
         // Loop through each field in required fields array
         $(requiredFields).each(
           function(){
@@ -182,10 +188,15 @@ jQuery(document).ready(function($) {
               $(this).addClass('validation-error');
               // and display an error message element on the screen
               errorMessage.slideDown();
+              allPassed = false;
             // If there are any elements that have values but previously failed validation
             } else if (($(this).hasClass('validation-error')) && ($(this).val !== '')) {
               // remove their error state
               $(this).removeClass('validation-error');
+            } else if (allPassed === true) {
+              bookingForm.fadeOut(1000, function(){
+                successMessage.fadeIn();
+              });
             }
           }
         );
