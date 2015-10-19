@@ -41,6 +41,12 @@
   Small (0px to 568px)
   @media screen and (min-width: 0em) and (max-width: 35.5em) {}
 
+  Small to Medium
+  @media screen and (min-width: 0em) and (max-width: 48em) {}
+
+  Small to Large
+  @media screen and (min-width: 0em) and (max-width: 81.250em) {}
+
   Medium (569px to 768px)
   @media screen and (min-width: 35.563em) and (max-width: 48em) {}
 
@@ -263,6 +269,10 @@ nav.mobile ul li:last-child {
   }
 }
 
+section#sticky-nav {
+  z-index: 1000;
+}
+
 section#sticky-nav,
 section#sticky-nav.active,
 section#sticky-nav > *
@@ -289,6 +299,7 @@ section#sticky-nav.active nav.global ul {
 section#sticky-nav.active div.mobile-button {
   margin-top: 20px;
   margin-bottom: 16px;
+  z-index: 2000;
 }
 section#sticky-nav.active div.mobile-button path {
   fill: rgba(51, 51, 51, 1);
@@ -296,6 +307,9 @@ section#sticky-nav.active div.mobile-button path {
 
 /*--- Logo --- */
 
+.sticky-nav .logo {
+  white-space: nowrap;
+}
 .sticky-nav .logo svg {
   trasition: 0.5s;
   margin-top: 29px;
@@ -358,6 +372,10 @@ section#home {
   color: rgba(255, 255, 255, 1);
   max-width: none;
   height: 100vh;
+  padding: 0;
+}
+.tp-bannertimer {
+  background-color: rgba(0, 168, 255, 0.7);
 }
 
 
@@ -615,7 +633,7 @@ p.success-message {
 
 @media screen and (min-width: 0em) and (max-width: 64em) {
   .mobile-book-button {
-    display: block;
+    display: block !important;
     border: 1px solid rgba(229, 229, 229, 1);
     line-height: 0;
     margin-top: 10px;
@@ -708,12 +726,12 @@ section#contact {
   }
   .contact-tile-bounds p {
     text-align: center;
+    margin: 0;
   }
   .contact-tile-bounds:last-child {
     margin-bottom: 0;
   }
 }
-
 
 
 
@@ -748,6 +766,13 @@ section#footer div.copyright.pure-u-24-24 {
   }
   footer.limiter div.copyright {
     margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 0em) and (max-width: 81.250em) {
+  section#footer {
+    font-size: 1.4rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 50px 0;
   }
 }
 
