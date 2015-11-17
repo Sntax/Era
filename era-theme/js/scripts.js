@@ -27,8 +27,8 @@ jQuery(document).ready(function($){
       eraCapeTown.accordion();
       // Executes booking form validation
       eraCapeTown.bookingFormValidation();
-      // Executes watcher for successful booking form submission
-      eraCapeTown.bookingFormSuccessMessage();
+      // Executes a "slide-down" on the feedback form link
+      eraCapeTown.feedbackFormToggle();
     },
 
     // Scrolls to a section on click
@@ -166,12 +166,10 @@ jQuery(document).ready(function($){
 
     // Booking form validation
     bookingFormValidation: function(){
-      var errorMessage = $('.field.error-message');
-      var successMessage = $('p.success-message');
-      var submitButton = $('.booking-form input#ss-submit');
-      var inputs = $('.booking-form input');
-      var bookingForm = $('form#ss-form');
-      // List of required fields on form
+      var bookingForm = $('.booking-form');
+      var bookingSubmit = $('.table-bookings-submit');
+      var bookingSuccess = $('.booking-form .success-message');
+      var bookingError = $('.booking-form .error-message');
       var requiredFields = [
         // Name
         $('input#entry_1565452159'),
@@ -182,9 +180,8 @@ jQuery(document).ready(function($){
         // Booking Date
         $('input#entry_2021801101')
       ];
-      // When clicking submit on booking form
-      $('form#ss-form input#ss-submit').on('click', function(e){
-        // Loop through each field in required fields array
+
+      bookingSubmit.on('click', function(e){
         $(requiredFields).each(
           function(){
             // If any required field is blank
@@ -194,54 +191,49 @@ jQuery(document).ready(function($){
               // Highlight the required field as invalid
               $(this).addClass('validation-error');
               // and display an error message element on the screen
-              errorMessage.slideDown();
+              bookingError.slideDown();
             // If there are any elements that have values but previously failed validation
             } else if (($(this).hasClass('validation-error')) && ($(this).val !== '')){
               // remove their error state
               $(this).removeClass('validation-error');
-            // If all input fields have data
             }
           }
         );
+        // If all input fields have data
+        if (!$('.validation-error')[0]) {
+          bookingForm.fadeOut(500);
+          bookingError.fadeOut(500, function(){
+            bookingSuccess.fadeIn(500);
+          });
+        }
       });
     },
 
-    // Booking form success message
-    bookingFormSuccessMessage: function(){
-      var bookingInterval = setInterval(checkLocation, 1000);
-      var successMessage = $('.booking-form .success-message');
-      var submitButton = $('.booking-form input#ss-submit');
-      var inputs = [
-        // Name
-        $('input#entry_1565452159'),
-        // Email Address
-        $('input#entry_1296499974'),
-        // Phone Number
-        $('input#entry_726044959'),
-        // Booking Date
-        $('input#entry_2021801101'),
-        // Additional Information
-        $('textarea#entry_741387056')
-      ];
-      
-      function checkLocation(){
-        if (document.location.hash === '#submitted=true'){
-          submitButton.fadeOut(1000, function(){
-          successMessage.fadeIn(1000);
-          $(inputs).each(
-            function(){
-              $(this).val('');
-            }
-          );
-          history.pushState('', document.title, window.location.pathname);
+    feedbackFormToggle: function(){
+      var feedbackShow = $('.copyright span');
+      var feedbackFormContainer = $('.feedback-form-container');
+      var feedbackSubmit = $('.send-feedback-submit');
+      var feedbackTextArea = $('#entry_1391242348');
+      var feedbackSuccess = $('.feedback-form-container .success-message');
+      var ssQuestionList = $('.feedback-form-container .ss-question-list');
+
+      feedbackShow.on('click', function(){
+        feedbackFormContainer.slideDown(1000);
+        $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+      });
+
+      feedbackSubmit.on('click', function(){
+        if (feedbackTextArea !== ''){
+          ssQuestionList.slideUp(1000, function(){
+            feedbackSuccess.fadeIn(1000);
+            feedbackShow.fadeOut(1000);
+            $('html, body').animate({ scrollTop: $(document).height() }, 1000);
           });
         }
-        if (successMessage.is(':visible')){
-          clearInterval(bookingInterval);
-        }
-      }
+      });
     }
   };
+
   // Initialize all functions
   eraCapeTown.init();
 });
