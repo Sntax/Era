@@ -25,6 +25,8 @@ jQuery(document).ready(function($){
       eraCapeTown.sticky();
       // Executes accordion functionality
       eraCapeTown.accordion();
+      // Executes a "slide-down" on the artists section
+      eraCapeTown.viewArtists();
       // Executes booking form validation
       eraCapeTown.bookingFormValidation();
       // Executes a "slide-down" on the feedback form link
@@ -164,9 +166,19 @@ jQuery(document).ready(function($){
       });
     },
 
+    viewArtists: function(){
+      viewArtistsButton = $('.view-artists');
+      artistsSection = $('.artists');
+
+      viewArtistsButton.on('click', function(){
+        artistsSection.slideToggle(600);
+        $('html, body').animate({ scrollTop: artistsSection.offset().top }, 1000);
+      });
+    },
+
     // Booking form validation
     bookingFormValidation: function(){
-      var bookingForm = $('.booking-form');
+      var bookingForm = $('form.booking-form');
       var bookingSubmit = $('.table-bookings-submit');
       var bookingSuccess = $('.booking-form .success-message');
       var bookingError = $('.booking-form .error-message');
@@ -201,9 +213,10 @@ jQuery(document).ready(function($){
         );
         // If all input fields have data
         if (!$('.validation-error')[0]) {
-          bookingForm.fadeOut(500);
-          bookingError.fadeOut(500, function(){
-            bookingSuccess.fadeIn(500);
+          $('html, body').animate({ scrollTop: $('#table-bookings').offset().top }, 1000);
+          bookingForm.fadeOut(600);
+          bookingError.fadeOut(600, function(){
+            bookingSuccess.fadeIn(600);
           });
         }
       });
